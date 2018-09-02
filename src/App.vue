@@ -15,11 +15,18 @@
     </v-ons-page>
 </template>
 <script>
+  import * as RKZClientPromise from 'baasatrakuza-promise';
+
   export default{
     data() {
       return {
         title: 'My app'
       };
+    },
+    created() {
+      this.$ons.ready(() => {
+        RKZClientPromise.polyfill();
+      });
     },
     methods: {
       alert() {
