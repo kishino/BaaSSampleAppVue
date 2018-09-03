@@ -1,36 +1,30 @@
 <template>
-    <v-ons-page>
-      <v-ons-toolbar>
-        <div class="center">{{ title }}</div>
-        <div class="right">
-          <v-ons-toolbar-button>
-            <v-ons-icon icon="ion-navicon, material: md-menu"></v-ons-icon>
-          </v-ons-toolbar-button>
-        </div>
-      </v-ons-toolbar>
-      <div style="text-align: center; padding-top:10px">Hello World!</div>
-      <p style="text-align: center">
-        <v-ons-button @click="alert">Click Me!</v-ons-button>
-      </p>
-    </v-ons-page>
+  <v-ons-navigator :page-stack="pageStack"
+                   :pop-page="storePop"
+                   :options="options"
+                   swipeable
+                   swipe-target-width="40px">
+  </v-ons-navigator>
 </template>
 <script>
-  import * as RKZClientPromise from 'baasatrakuza-promise';
+  import SplashPage from './components/SplashPage';
 
   export default{
-    data() {
-      return {
-        title: 'My app'
-      };
+    beforeCreate() {
+      this.$ons.disableAutoStatusBarFill();
+      this.$store.commit('navigator/push', SplashPage);
     },
-    created() {
-      this.$ons.ready(() => {
-        RKZClientPromise.polyfill();
-      });
+    computed: {
+      pageStack() {
+        return this.$store.state.navigator.stack;
+      },
+      options() {
+        return this.$store.state.navigator.options;
+      }
     },
     methods: {
-      alert() {
-        this.$ons.notification.alert('This is an Onsen UI alert notification test.');
+      storePop() {
+        this.$store.commit('navigator/pop');
       }
     }
   };
