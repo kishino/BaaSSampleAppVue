@@ -15,14 +15,14 @@
   </v-ons-page>
 </template>
 <script>
-  export default{
-    data() {
-      return {
-      };
-    },
-    created() {
-    },
-    methods: {
-    }
-  };
+export default{
+  data() {
+    return {
+    };
+  },
+  created() {
+  },
+  methods: {
+  },
+};
 </script>

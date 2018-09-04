@@ -20,6 +20,7 @@ try {
 var useCache = !!process.env.WP_CACHE;
 
 module.exports = {
+  devtool: process.env.DEBUG === 'true' ? 'inline-source-map' : false,
   context: __dirname,
   cache: useCache,
   stats: {
@@ -85,6 +86,13 @@ module.exports = {
     }, {
       test: /\.json$/,
       loader: 'json'
+    }, {
+      test: /\.(js|vue)$/,
+      loader: 'eslint-loader',
+      enforce: 'pre',
+      include: [
+        path.join(__dirname, 'src')
+      ]
     }]
   },
 
@@ -111,7 +119,8 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('./config/prod.env.js')
+      'process.env': process.env.CONFIG_ENV === 'dev'
+        ? require('./config/dev.env.js') : require('./config/prod.env.js')
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor']

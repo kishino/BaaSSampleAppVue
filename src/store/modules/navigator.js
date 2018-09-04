@@ -3,7 +3,7 @@ export default {
   namespaced: true,
   state: {
     stack: [],
-    options: {}
+    options: {},
   },
   mutations: {
     push(state, page) {
@@ -23,8 +23,8 @@ export default {
     },
     options(state, newOptions = {}) {
       state.options = newOptions;
-    }
+    },
   },
   actions: {
-  }
+  },
 };

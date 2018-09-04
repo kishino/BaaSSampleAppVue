@@ -1,6 +1,6 @@
 {
-    "name": "onsenui-v2-vue-minimum",
-    "version": "2.4.0+20180608.1",
+    "name": "baassampleappvue",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "baasatrakuza-promise": "git+https://github.com/kishino/baasatrakuza-promise.git",
@@ -9,6 +9,7 @@
         "cordova-plugin-splashscreen": "5.0.1",
         "cordova-plugin-whitelist": "1.3.3",
         "css-loader": "*",
+        "eslint-config-vue": "~2.0.2",
         "monaca-plugin-monaca-core": "3.2.0",
         "onsenui": "~2.10.0",
         "vue": "~2.5.0",
@@ -25,5 +26,24 @@
             "monaca-plugin-monaca-core": {},
             "cordova-plugin-baasatrakuza": {}
         }
+    },
+    "devDependencies": {
+        "cross-env": "~5.2.0",
+        "eslint": "~4.19.1",
+        "eslint-config-airbnb-base": "~13.1.0",
+        "eslint-import-resolver-webpack": "~0.10.1",
+        "eslint-loader": "~2.1.0",
+        "eslint-plugin-import": "~2.14.0",
+        "eslint-plugin-vue": "~4.7.1",
+        "webpack-merge": "~4.1.4"
+    },
+    "scripts": {
+        "transpile": "monaca transpile",
+        "transpile:dev": "cross-env CONFIG_ENV=dev monaca transpile",
+        "debug": "cross-env DEBUG=true monaca debug",
+        "debug:dev": "cross-env CONFIG_ENV=dev DEBUG=true monaca debug",
+        "upload": "monaca upload || exit 0",
+        "upload:dev": "cross-env CONFIG_ENV=dev monaca upload || exit 0",
+        "lint": "eslint --fix --ext .js,.vue src"
     }
 }
