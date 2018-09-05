@@ -96,7 +96,13 @@ module.exports = {
 
   babel: {
     presets: [
-      path.join(cordovaNodeModules, 'babel-preset-es2015')
+      ['env', {
+        modules: false,
+        targets: {
+          browsers: ['iOS >= 9.0', 'Android >= 4.4']
+        }
+      }],
+      require.resolve(path.join(cordovaNodeModules, 'babel-preset-es2015'))
     ],
   },
 
@@ -105,7 +111,7 @@ module.exports = {
       postcssImport,
       postcssUrl,
       cssnext({
-        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+        browsers: ['iOS >= 9.0', 'Android >= 4.4']
       })
     ]
   },

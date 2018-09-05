@@ -2,8 +2,17 @@
     "name": "baassampleappvue",
     "version": "1.0.0",
     "description": "",
+    "scripts": {
+        "transpile": "monaca transpile",
+        "transpile:dev": "cross-env CONFIG_ENV=dev monaca transpile",
+        "debug": "cross-env DEBUG=true monaca debug",
+        "debug:dev": "cross-env CONFIG_ENV=dev DEBUG=true monaca debug",
+        "upload": "monaca upload || exit 0",
+        "upload:dev": "cross-env CONFIG_ENV=dev monaca upload || exit 0",
+        "lint": "eslint --fix --ext .js,.vue src"
+    },
     "dependencies": {
-        "baasatrakuza-promise": "git+https://github.com/kishino/baasatrakuza-promise.git",
+        "baasatrakuza-promise": "~0.0.1",
         "cordova-custom-config": "5.0.2",
         "cordova-plugin-baasatrakuza": "git+https://github.com/pscsrv/cordova-plugin-baasatrakuza",
         "cordova-plugin-splashscreen": "5.0.1",
@@ -18,16 +27,8 @@
         "vue-template-compiler": "~2.5.0",
         "vuex": "~3.0.1"
     },
-    "cordova": {
-        "plugins": {
-            "cordova-custom-config": {},
-            "cordova-plugin-splashscreen": {},
-            "cordova-plugin-whitelist": {},
-            "monaca-plugin-monaca-core": {},
-            "cordova-plugin-baasatrakuza": {}
-        }
-    },
     "devDependencies": {
+        "babel-preset-env": "~1.7.0",
         "cross-env": "~5.2.0",
         "eslint": "~4.19.1",
         "eslint-config-airbnb-base": "~13.1.0",
@@ -37,13 +38,17 @@
         "eslint-plugin-vue": "~4.7.1",
         "webpack-merge": "~4.1.4"
     },
-    "scripts": {
-        "transpile": "monaca transpile",
-        "transpile:dev": "cross-env CONFIG_ENV=dev monaca transpile",
-        "debug": "cross-env DEBUG=true monaca debug",
-        "debug:dev": "cross-env CONFIG_ENV=dev DEBUG=true monaca debug",
-        "upload": "monaca upload || exit 0",
-        "upload:dev": "cross-env CONFIG_ENV=dev monaca upload || exit 0",
-        "lint": "eslint --fix --ext .js,.vue src"
+    "browserslist": [
+        "iOS >= 9.0",
+        "Android >= 4.4"
+    ],
+    "cordova": {
+        "plugins": {
+            "cordova-custom-config": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-whitelist": {},
+            "monaca-plugin-monaca-core": {},
+            "cordova-plugin-baasatrakuza": {}
+        }
     }
 }
