@@ -1,0 +1,17 @@
+android {
+  buildTypes {
+    release {buildConfigField 'String', 'AuthorizationURL', '"https://cloud.raku-za.jp/apps/baas-auth/"'}
+    debug {buildConfigField 'String', 'AuthorizationURL', '"https://cloud.raku-za.jp/apps/baas-auth/"'}
+  }
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '26.1.0'
+            }
+        }
+    }
+}

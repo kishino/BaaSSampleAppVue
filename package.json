@@ -15,12 +15,16 @@
         "baasatrakuza-promise": "~0.0.1",
         "cordova-custom-config": "5.0.2",
         "cordova-plugin-baasatrakuza": "git+https://github.com/pscsrv/cordova-plugin-baasatrakuza",
+        "cordova-plugin-baassampleapp": "file:plugins/cordova-plugin-baassampleapp",
         "cordova-plugin-splashscreen": "5.0.1",
         "cordova-plugin-whitelist": "1.3.3",
         "css-loader": "*",
         "eslint-config-vue": "~2.0.2",
+        "lodash": "~4.17.10",
+        "moment": "~2.22.2",
         "monaca-plugin-monaca-core": "3.2.0",
         "onsenui": "~2.10.0",
+        "phonegap-plugin-push": "git+https://github.com/pscsrv/phonegap-plugin-push.git#v1.x_oreo",
         "vue": "~2.5.0",
         "vue-loader": "11.0.0",
         "vue-onsenui": "~2.6.0",
@@ -48,7 +52,11 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
             "monaca-plugin-monaca-core": {},
-            "cordova-plugin-baasatrakuza": {}
+            "cordova-plugin-baasatrakuza": {},
+            "cordova-plugin-baassampleapp": {},
+            "phonegap-plugin-push": {
+                "SENDER_ID": ""
+            }
         }
     }
 }

@@ -48,6 +48,17 @@
     <icon src="/res/ios/icon/icon-83.5@2x~ipad.png" width="167" height="167"/>
     <icon src="/res/ios/icon/icon-1024.png" width="1024" height="1024"/>
     <splash src="/res/ios/screen/Default@2x~universal~anyany.png"/>
+    <config-file platform="ios" parent="BaaS@rakuza settings" target="*-Info.plist">
+      <dict>
+        <key>AuthorizationURL</key>
+        <string>https://cloud.raku-za.jp/apps/baas-auth/</string>
+      </dict>
+    </config-file>
+    <config-file platform="ios" target="*-Info.plist" parent="UISupportedInterfaceOrientations">
+      <array>
+        <string>UIInterfaceOrientationPortrait</string>
+      </array>
+    </config-file>
     <config-file platform="ios" parent="CFBundleLocalizations" target="*-Info.plist">
       <array>
         <string>ja</string>
@@ -67,12 +78,19 @@
     <splash src="/res/android/screen/splash-port-xhdpi.9.png" density="port-xhdpi"/>
     <splash src="/res/android/screen/splash-port-xxhdpi.9.png" density="port-xxhdpi"/>
     <splash src="/res/android/screen/splash-port-xxxhdpi.9.png" density="port-xxxhdpi"/>
+
+    <resource-file src="/res/android/notification_icon/mdpi.png" target="res/drawable-mdpi/notification_icon.png" />
+    <resource-file src="/res/android/notification_icon/hdpi.png" target="res/drawable-hdpi/notification_icon.png" />
+    <resource-file src="/res/android/notification_icon/xhdpi.png" target="res/drawable-xhdpi/notification_icon.png" />
+    <resource-file src="/res/android/notification_icon/xxhdpi.png" target="res/drawable-xxhdpi/notification_icon.png" />
+    <resource-file src="/res/android/notification_icon/xxxhdpi.png" target="res/drawable-xxxhdpi/notification_icon.png" />
   </platform>
   <preference name="KeepRunning" value="false"/>
   <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
   <preference name="Orientation" value="portrait"/>
   <preference name="SplashScreenDelay" value="99999999"/>
   <preference name="Fullscreen" value="false"/>
+  <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="9.0" quote="none"/>
   <preference name="ios-XCBuildConfiguration-TARGETED_DEVICE_FAMILY" value="1"/>
   <preference name="AutoHideSplashScreen" value="false"/>
   <preference name="FadeSplashScreen" value="true"/>
