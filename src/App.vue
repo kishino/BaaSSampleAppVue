@@ -20,7 +20,6 @@ export default{
     },
   },
   beforeCreate() {
-    this.$ons.disableAutoStatusBarFill();
     this.$store.commit('navigator/push', SplashPage);
   },
   methods: {
