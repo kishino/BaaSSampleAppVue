@@ -8,6 +8,7 @@ import RKZClientPromise from 'baasatrakuza-promise';
 import TopPage from './TopPage';
 
 import localStorage from '../local-storage';
+import * as constants from '../constants';
 
 export default {
   created() {
@@ -49,6 +50,8 @@ export default {
       const push = window.PushNotification.init({
         android: {
           senderID: process.env.SENDER_ID,
+          icon: 'notification_icon',
+          iconColor: constants.PRIMARY_COLOR,
         },
         ios: {
           alert: 'true',
